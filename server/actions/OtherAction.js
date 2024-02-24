@@ -1,6 +1,6 @@
 
 const BaseAction = require('./BaseAction');
-const User = require('../databases/models/user');
+const User = require('../databases/models/User');
 
 /** @type {import('express')} */
 class OtherAction extends BaseAction {

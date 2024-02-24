@@ -44,3 +44,25 @@ The project has the following directory structure:
     /-- libraries (For server-side libraries)
 /-- ui (For client-side code)
 ```
+
+
+## Commands 
+
+This framework comes with a `command` that you can use to generate a new component, build automation, etc.. List of available commands are :
+
+```bash
+node command.js
+```
+
+Example for Command Usage : 
+```bash
+node command.js migration:create create_users_table
+```
+
+
+## Other things to note
+
+### Model, Migration and ORM
+
+This Project uses sequelize as the ORM. You can check it out on the sequelize documentation on [Sequelize](https://sequelize.org/)
+

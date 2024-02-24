@@ -1,11 +1,21 @@
+/**
+ * @author Herlangga Sefani {@link https://github.com/gaibz}
+ * @package exsvel
+ * @path server/databases/models/${file_name}
+ */
+
 'use strict';
+
 const {
     Model,
     DataTypes
 } = require('sequelize');
-const {sequelize} = require('./_config');
 
-class User extends Model {
+const {
+    sequelize
+} = require('./_config');
+
+class ${modelName} extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -16,24 +26,24 @@ class User extends Model {
     }
 }
 
-User.init({
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
+${modelName}.init({
+    // Define column here
+
+    // Specific Mapping (I use unix timestamp everytime)
     createdAt: {
         type: DataTypes.INTEGER,
         field: 'created_at',
-        allowNull: false
     },
     updatedAt: {
         type: DataTypes.INTEGER,
         field: 'updated_at',
-        allowNull: false
     }
 }, {
     sequelize,
-    modelName: 'User',
-    underscored: true,
-    tableName: 'users',
+    modelName: `${modelName}`,
+    underscored: true, // should we use underscored?
+    tableName: `${tableName}`,
+    // If you dont use unix timestamp then just delete this hooks
     hooks: {
         beforeCreate: (record, options) => {
             record.dataValues.createdAt = Math.floor(Date.now() / 1000);
@@ -45,4 +55,4 @@ User.init({
     }
 });
 
-module.exports = User;
+module.exports = ${modelName};
