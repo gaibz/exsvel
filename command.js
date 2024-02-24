@@ -2,7 +2,7 @@
  * @author Herlangga Sefani {@link https://github.com/gaibz}
  * @date 2024-Feb-24/02/24
  * @package exsvel
- * @path /generator.js
+ * @path /command.js
  */
 
 let args = process.argv.slice(2);
