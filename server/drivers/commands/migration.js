@@ -20,7 +20,7 @@ function create (args) {
 
     let file_name = date_string + '-' + name + '.js';
 
-    autoCreate(__dirname + '/templates/migration_blueprint.js', __dirname + '/../../databases/migrations/' + file_name, {
+    autoCreate(__dirname + '/templates/migration_blueprint.tjs', __dirname + '/../../databases/migrations/' + file_name, {
         migration_name: name,
         file_name: file_name
     });

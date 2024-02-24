@@ -34,7 +34,7 @@ function create(args) {
     let name = args[0];
     let file_name = name + '.js';
 
-    autoCreate(__dirname + '/templates/model_blueprint.js', __dirname + '/../../databases/models/' + file_name, {
+    autoCreate(__dirname + '/templates/model_blueprint.tjs', __dirname + '/../../databases/models/' + file_name, {
         file_name: file_name,
         modelName : name,
         tableName : tableNameFromModelName(name)

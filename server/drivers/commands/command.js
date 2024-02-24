@@ -20,7 +20,7 @@ function create(args) {
 
     let file_name = args[0] + '.js';
     console.log('Create a Command : ', file_name);
-    autoCreate(__dirname + '/templates/command_blueprint.js', __dirname + '/../../commands/' + file_name, {
+    autoCreate(__dirname + '/templates/command_blueprint.tjs', __dirname + '/../../commands/' + file_name, {
         file_name: file_name,
         name: args[0]
     });
