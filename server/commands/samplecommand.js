@@ -1,7 +1,7 @@
 /**
  * @author Herlangga Sefani {@link https://github.com/gaibz}
  * @package exsvel
- * @path server/commands/${file_name}
+ * @path server/drivers/generators/samplecommand.js
  */
 
 /**
@@ -9,7 +9,7 @@
  * for a custom action command, you can specify another method and export it
  * `node generator.js <thisfilename>:<method> <...args>`
  * @param {Array} args
- * @example node generator.js ${name} <...args>
+ * @example node generator.js samplecommand <...args>
  */
 function run(args) {
     console.log('Running command');

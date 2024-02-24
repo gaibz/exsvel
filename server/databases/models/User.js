@@ -28,6 +28,8 @@ class User extends Model {
 
 User.init({
     // Define column here
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
 
     // Specific Mapping (I use unix timestamp everytime)
     createdAt: {

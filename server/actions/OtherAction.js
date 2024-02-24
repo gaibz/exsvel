@@ -11,7 +11,7 @@ class OtherAction extends BaseAction {
     constructor(express) {
         super(express);
 
-        this.express.get('/other', this.otherAction);
+        this.express.get('/api/v1/other', this.index);
     }
 
     /**
@@ -19,7 +19,7 @@ class OtherAction extends BaseAction {
      * @param {Request} req
      * @param {Response} res
      */
-    async otherAction(req, res) {
+    async index(req, res) {
         await User.create({
             firstName: 'John',
             lastName: 'Hancock'

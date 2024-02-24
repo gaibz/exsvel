@@ -8,7 +8,7 @@ class HomeAction extends BaseAction {
     constructor(express) {
         super(express);
 
-        this.express.get('/', (req, res) => {
+        this.express.get('/api/v1/', (req, res) => {
             res.send('Hello World!')
         });
 
