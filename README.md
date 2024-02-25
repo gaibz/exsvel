@@ -28,6 +28,16 @@ To install the project dependencies, run the following command:
 npm install
 ```
 
+```bash
+cp env .env
+```
+
+Generate a JWT Secret Key, the key should be used in the `.env` file on line `APP_JWT_SECRET`.
+
+```bash
+node command.js jwt_secret
+```
+
 
 ## Running the Server
 
@@ -79,4 +89,4 @@ This Project uses sequelize as the ORM. You can check it out on the sequelize do
 - [ ] `command.js` generate action with model (For faster CRUD)
 - [ ] `command.js` generate action with middleware (For simplicity auth)
 - [ ] create driver for parsing HTTP GET query 
-
+- [ ] make auth system with JWT in middleware
