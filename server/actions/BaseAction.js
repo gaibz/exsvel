@@ -9,6 +9,10 @@ class BaseAction {
     constructor(express_app) {
         this.express = express_app;
     }
+
+    getFullUrl(req) {
+        return req.protocol + '://' + req.get('host') + req.originalUrl;
+    }
 }
 
 

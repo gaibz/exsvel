@@ -6,7 +6,8 @@
  */
 
 const BaseAction = require("./BaseAction");
-
+const {authorize} = require("../middlewares/authentication");
+const {parseIntoModelQuery, parseQueryString} = require("../drivers/QueryParser");
 
 class ${name} extends BaseAction {
 
@@ -17,11 +18,13 @@ class ${name} extends BaseAction {
     constructor(express) {
         super(express);
 
-        this.express.get(`/api/${api_version}/${route_name}s`, this.index);
-        this.express.get(`/api/${api_version}/${route_name}/:id`, this.show);
-        this.express.post(`/api/${api_version}/${route_name}`, this.create);
-        this.express.put(`/api/${api_version}/${route_name}/:id`, this.update);
-        this.express.delete(`/api/${api_version}/${route_name}/:id`, this.remove);
+        // authorize is optional, you can remove it if you don't need it
+
+        this.express.get(`/api/${api_version}/${route_name}s`, authorize, this.index);
+        this.express.get(`/api/${api_version}/${route_name}/:id`, authorize, this.show);
+        this.express.post(`/api/${api_version}/${route_name}`, authorize, this.create);
+        this.express.put(`/api/${api_version}/${route_name}/:id`, authorize, this.update);
+        this.express.delete(`/api/${api_version}/${route_name}/:id`, authorize, this.remove);
 
     }
 
@@ -32,6 +35,15 @@ class ${name} extends BaseAction {
      * @returns {Promise<void>}
      */
     async index(req, res) {
+        // in case you want to define searchable columns
+        let searchable_columns = [];
+
+        // in case you want to strict the where (cannot customized by user)
+        let append_where = {};
+
+        let model_query = parseIntoModelQuery(this.getFullUrl(req), searchable_columns, append_where);
+
+        // model_query now is a sequelize query object
     }
 
     /**
