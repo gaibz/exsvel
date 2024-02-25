@@ -6,6 +6,8 @@
  */
 
 const {autoCreate} = require('../template_parser');
+const package_json = require("../../../package.json");
+const moment = require("moment/moment");
 const exec = require('child_process').exec;
 
 
@@ -15,14 +17,26 @@ const exec = require('child_process').exec;
  */
 function create (args) {
     let name = args[0];
+    if(!name) {
+        return console.log("Please specify a Name for this migration, node command.js migration <name>");
+    }
+
     let date = new Date();
     let date_string = date.getFullYear() + '' + (date.getMonth() + 1) + '' + date.getDate() + '' + date.getHours() + date.getMinutes() + date.getSeconds();
 
     let file_name = date_string + '-' + name + '.js';
 
+    const package_json = require("../../../package.json");
+    let author = process.env.AUTHOR_NAME;
+    let date2 = moment().format("YYYY-MM-DD");
+    let package_name = process.env.APP_NAME;
+
     autoCreate(__dirname + '/templates/migration_blueprint.tjs', __dirname + '/../../databases/migrations/' + file_name, {
         migration_name: name,
-        file_name: file_name
+        file_name: file_name,
+        author,
+        date:date2,
+        package_name,
     });
     console.log('Migration file created: ' + file_name);
 }

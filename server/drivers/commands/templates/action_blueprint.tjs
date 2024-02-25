@@ -1,0 +1,82 @@
+/**
+ * @author ${author}
+ * @date ${date}
+ * @package ${package_name}
+ * @path server/actions/${file_name}
+ */
+
+const BaseAction = require("./BaseAction");
+
+
+class ${name} extends BaseAction {
+
+    /**
+     * Constructor
+     * @param {Express} express
+     */
+    constructor(express) {
+        super(express);
+
+        this.express.get(`/api/${api_version}/${route_name}s`, this.index);
+        this.express.get(`/api/${api_version}/${route_name}/:id`, this.show);
+        this.express.post(`/api/${api_version}/${route_name}`, this.create);
+        this.express.put(`/api/${api_version}/${route_name}/:id`, this.update);
+        this.express.delete(`/api/${api_version}/${route_name}/:id`, this.remove);
+
+    }
+
+    /**
+     * Default For HTTP GET (Indexing)
+     * @param {Request} req
+     * @param {Response} res
+     * @returns {Promise<void>}
+     */
+    async index(req, res) {
+    }
+
+    /**
+     * Show individual Item (HTTP GET)
+     * @param {Request} req
+     * @param {Response} res
+     * @returns {Promise<void>}
+     */
+    async show(req, res) {
+        const id = parseInt(req.params.id);
+    }
+
+    /**
+     * Create Action (For HTTP POST)
+     * @param {Request} req
+     * @param {Response} res
+     * @returns {Promise<void>}
+     */
+    async create(req, res) {
+
+    }
+
+    /**
+     * Update Request (HTTP PUT)
+     * @param {Request} req
+     * @param {Response} res
+     * @returns {Promise<void>}
+     */
+    async update(req, res) {
+        const id = parseInt(req.params.id);
+    }
+
+
+    /**
+     * Delete Request (HTTP DELETE)
+     * @param {Request} req
+     * @param {Response} res
+     * @returns {Promise<void>}
+     */
+    async remove(req, res) {
+        const id = parseInt(req.params.id);
+    }
+
+    // You can define another method in here and access with routing
+    // ...
+}
+
+module.exports = ${name}

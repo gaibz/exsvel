@@ -1,15 +1,19 @@
 # Welcome to ExSvel Project
 
+### Current status of this project is in BETA
+
 ExSvel is a project that aims to provide a simple and easy way to create a web application using Svelte and Express. 
 
 The reason i built this is for my own personal project, because i need a simple, fast, and easy way to create a web application. And also stable, secure and reliable.
+
+I want to make it easy for start a new project, so you can just download this as archive (.zip, .tar.gz, etc...) or just clone a git repository
 
 ## Getting Started
 
 you can clone this repository and start your project with the following commands:
 
 ```bash
-git clone 
+git clone https://github.com/gaibz/exsvel.git
 ```
 
 ## Prerequisites
@@ -42,6 +46,9 @@ The project has the following directory structure:
 /-- server (For server-side code)
     /-- actions (For server-side actions)
     /-- libraries (For server-side libraries)
+    /-- commands (For Listed Command Generated)
+    /-- databases (For Database specific action (Model, seeder, migration)
+    /-- drivers (For Framework Specific driver)
 /-- ui (For client-side code)
 ```
 
@@ -65,4 +72,11 @@ node command.js migration:create create_users_table
 ### Model, Migration and ORM
 
 This Project uses sequelize as the ORM. You can check it out on the sequelize documentation on [Sequelize](https://sequelize.org/)
+
+
+## TODO LIST
+
+- [ ] `command.js` generate action with model (For faster CRUD)
+- [ ] `command.js` generate action with middleware (For simplicity auth)
+- [ ] create driver for parsing HTTP GET query 
 

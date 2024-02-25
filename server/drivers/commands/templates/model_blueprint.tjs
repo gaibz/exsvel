@@ -1,6 +1,7 @@
 /**
  * @author Herlangga Sefani {@link https://github.com/gaibz}
- * @package exsvel
+ * @date ${date}
+ * @package ${package_name}
  * @path server/databases/models/${file_name}
  */
 

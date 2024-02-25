@@ -6,6 +6,8 @@
  */
 
 const {autoCreate} = require('../template_parser');
+const package_json = require("../../../package.json");
+const moment = require("moment/moment");
 
 /**
  * Create new Generator File
@@ -19,10 +21,19 @@ function create(args) {
     }
 
     let file_name = args[0] + '.js';
+
+    const package_json = require("../../../package.json");
+    let author = process.env.AUTHOR_NAME;
+    let date = moment().format("YYYY-MM-DD");
+    let package_name = process.env.APP_NAME;
+
     console.log('Create a Command : ', file_name);
     autoCreate(__dirname + '/templates/command_blueprint.tjs', __dirname + '/../../commands/' + file_name, {
         file_name: file_name,
-        name: args[0]
+        name: args[0],
+        author,
+        date,
+        package_name,
     });
 }
 

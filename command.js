@@ -5,6 +5,8 @@
  * @path /command.js
  */
 
+require("dotenv").config();
+
 let args = process.argv.slice(2);
 
 
