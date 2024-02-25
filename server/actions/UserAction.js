@@ -6,6 +6,7 @@
  */
 
 const BaseAction = require("./BaseAction");
+const {authorize} = require("../middlewares/authentication");
 
 
 class UserAction extends BaseAction {
@@ -17,11 +18,11 @@ class UserAction extends BaseAction {
     constructor(express) {
         super(express);
 
-        this.express.get(`/api/v1/users`, this.index);
-        this.express.get(`/api/v1/user/:id`, this.show);
-        this.express.post(`/api/v1/user`, this.create);
-        this.express.put(`/api/v1/user/:id`, this.update);
-        this.express.delete(`/api/v1/user/:id`, this.remove);
+        this.express.get(`/api/v1/users`, authorize, this.index);
+        this.express.get(`/api/v1/user/:id`, authorize, this.show);
+        this.express.post(`/api/v1/user`, authorize, this.create);
+        this.express.put(`/api/v1/user/:id`, authorize, this.update);
+        this.express.delete(`/api/v1/user/:id`, authorize, this.remove);
 
     }
 
@@ -32,6 +33,7 @@ class UserAction extends BaseAction {
      * @returns {Promise<void>}
      */
     async index(req, res) {
+        res.send(req.params.auth_data);
     }
 
     /**

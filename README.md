@@ -89,4 +89,4 @@ This Project uses sequelize as the ORM. You can check it out on the sequelize do
 - [ ] `command.js` generate action with model (For faster CRUD)
 - [ ] `command.js` generate action with middleware (For simplicity auth)
 - [ ] create driver for parsing HTTP GET query 
-- [ ] make auth system with JWT in middleware
+- [x] make auth system with JWT in middleware
