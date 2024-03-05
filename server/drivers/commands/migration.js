@@ -11,6 +11,18 @@ const moment = require("moment/moment");
 const exec = require('child_process').exec;
 
 
+function getCurrentDate() {
+    let date = new Date();
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Ensure two digits
+    const day = date.getDate().toString().padStart(2, '0'); // Ensure two digits
+    const hours = date.getHours().toString().padStart(2, '0'); // Ensure two digits
+    const minutes = date.getMinutes().toString().padStart(2, '0'); // Ensure two digits
+    const seconds = date.getSeconds().toString().padStart(2, '0'); // Ensure two digits
+
+    return year + month + day + hours + minutes + seconds;
+}
+
 /**
  * Create new Migration File
  * @param {Array} args
@@ -21,8 +33,8 @@ function create (args) {
         return console.log("Please specify a Name for this migration, node command.js migration <name>");
     }
 
-    let date = new Date();
-    let date_string = date.getFullYear() + '' + (date.getMonth() + 1) + '' + date.getDate() + '' + date.getHours() + date.getMinutes() + date.getSeconds();
+
+    let date_string = getCurrentDate();
 
     let file_name = date_string + '-' + name + '.js';
 
